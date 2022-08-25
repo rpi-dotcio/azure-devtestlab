@@ -9,7 +9,7 @@
       "PHP",
       "Apache2"
   ],
-  "iconUri": "https://raw.githubusercontent.com/RPI/azure-devtestlab/blob/dev/Artifacts/ubuntu-lamp-stack/ubuntuLampArtifact.png",
+  "iconUri": "https://ubuntu.com/favicon.ico",
   "targetOsType": "Linux",
   "parameters": {},
   "runCommand": {
