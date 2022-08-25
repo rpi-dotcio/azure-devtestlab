@@ -1,0 +1,18 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+  "title": "Install Lamp Stack on Ubuntu",
+  "publisher": "Josh Cherry",
+  "description": "Install a basic Lamp stack on Ubuntu",
+  "tags": [
+      "MariaDB",
+      "Linux",
+      "PHP",
+      "Apache2"
+  ],
+  "iconUri": "https://raw.githubusercontent.com/RPI/azure-devtestlab/blob/dev/Artifacts/ubuntu-lamp-stack/ubuntuLampArtifact.png",
+  "targetOsType": "Linux",
+  "parameters": {},
+  "runCommand": {
+      "commandToExecute": "['sh ubuntu-lamp-stack.sh']"
+  }
+}
