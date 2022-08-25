@@ -13,7 +13,7 @@ apt update
 apt install apache2 -y
 apt install mariadb-server -y
 apt install php php-zip php-curl php-dev php-mysql php-mbstring libapache2-mod-php -y
-apt install git
+apt install git -y
 
 systemctl restart apache2
 systemctl restart maraidb
