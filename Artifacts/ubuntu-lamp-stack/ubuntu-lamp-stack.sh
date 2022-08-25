@@ -16,7 +16,7 @@ apt install php php-zip php-curl php-dev php-mysql php-mbstring libapache2-mod-p
 apt install git -y
 
 systemctl restart apache2
-systemctl restart maraidb
+systemctl restart mariadb
 
 systemctl enable apache2
 systemctl enable mariadb
