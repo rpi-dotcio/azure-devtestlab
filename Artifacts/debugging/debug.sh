@@ -14,7 +14,5 @@ cat /etc/passwd > /testing/passwd.txt
 
 firstUser=$(id -nu 1000)
 
-echo "$(whoami)" >> /testing/userswitch.txt
-su - $firstUser
-echo "$(whoami)" >> /testing/userswitch.txt
-exit
+echo "$(whoami)" > /testing/userswitch.txt
+runuser -u $firstUser -- whoami >> /testing/userswitch.txt
