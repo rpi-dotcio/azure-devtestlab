@@ -11,3 +11,10 @@ mkdir /testing
 env > /testing/ENV.txt
 ls -la /home > /testing/home.txt
 cat /etc/passwd > /testing/passwd.txt
+
+firstUser=$(id -nu 1000)
+
+echo "$(whoami)" >> /testing/userswitch.txt
+su - $firstUser
+echo "$(whoami)" >> /testing/userswitch.txt
+exit
