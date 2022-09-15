@@ -14,9 +14,6 @@ echo "alias l='ls -alF'" >> /etc/bash.bashrc
 echo "alias dc='docker-compose'" >> /etc/bash.bashrc
 echo "alias dcl='dc exec login bash'" >> /etc/bash.bashrc
 
-# Disable XDMOD because it's broken right now
-echo "export DISABLE_XDMOD=1" >> /etc/bash.bashrc
-
 source /etc/bash.bashrc
 
 apt -y update && apt -y upgrade && apt -y install git curl gcc make docker-compose wget
@@ -51,5 +48,6 @@ fs.inotify.max_user_watches=1048576" >> /etc/sysctl.conf
 git clone --depth 1 --single-branch -b slurm-22.05 https://gitlab.com/SchedMD/training/docker-scale-out.git /home/$firstUser/docker-scale-out
 chown $firstUser:$firstUser -R /home/$firstUser/docker-scale-out
 sed -i 's/^FROM alpine$/FROM alpine:3.15/g' /home/$firstUser/docker-scale-out/proxy/Dockerfile
+sed -i 's/^unset MAC$/unset MAC\nDISABLE_XDMOD=yes/g' /home/$firstUser/docker-scale-out/buildout.sh
 echo "cd docker-scale-out" >> /home/$firstUser/.bashrc
-runuser -l  $firstUser -c 'cd ~/docker-scale-out && DISABLE_XDMOD=1 && make build'
+runuser -l  $firstUser -c 'cd ~/docker-scale-out && make build' 
