@@ -52,4 +52,4 @@ git clone --depth 1 --single-branch -b slurm-22.05 https://gitlab.com/SchedMD/tr
 chown $firstUser:$firstUser -R /home/$firstUser/docker-scale-out
 sed -i 's/^FROM alpine$/FROM alpine:3.15/g' /home/$firstUser/docker-scale-out/proxy/Dockerfile
 echo "cd docker-scale-out" >> /home/$firstUser/.bashrc
-runuser -l  $firstUser -c 'cd ~/docker-scale-out && make build'
+runuser -l  $firstUser -c 'cd ~/docker-scale-out && DISABLE_XDMOD=1 && make build'
