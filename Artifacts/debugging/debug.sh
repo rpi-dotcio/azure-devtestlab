@@ -12,9 +12,14 @@ echo "alias cls='clear'" >> /etc/bash.bashrc
 echo "alias ..='cd ..'" >> /etc/bash.bashrc
 echo "alias l='ls -alF'" >> /etc/bash.bashrc
 echo "alias dc='docker-compose'" >> /etc/bash.bashrc
-eco "alias dcl= dc exec login bash" >> /etc/bash.bashrc
+echo "alias dcl='dc exec login bash'" >> /etc/bash.bashrc
+
+# Disable XDMOD because it's broken right now
+echo "export DISABLE_XDMOD=1" >> /etc/bash.bashrc
+
 source /etc/bash.bashrc
-apt -y update && apt -y upgrade && apt -y install curl gcc make docker-compose wget
+
+apt -y update && apt -y upgrade && apt -y install git curl gcc make docker-compose wget
 sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 curl -sSL https://get.docker.com/ | sudo bash
 rm -rf /usr/bin/docker-compose
